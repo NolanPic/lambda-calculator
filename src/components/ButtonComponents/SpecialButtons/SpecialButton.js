@@ -1,8 +1,11 @@
 import React from "react";
 
 const SpecialButton = (props) => {
+
+  const { special, addCalculation } = props;
+
   return (
-  <button>{props.special}</button>
+  <button onClick={() => addCalculation(special)}>{special}</button>
   );
 };
 

@@ -1,8 +1,14 @@
 import React from "react";
 
 const OperatorButton = (props) => {
+
+  const { operator, addCalculation } = props;
+
   return (
-  <button>{props.operator.char}</button>
+    <button
+      onClick={() => addCalculation(operator.value)}>
+      {operator.char}
+    </button>
   );
 };
 

@@ -9,7 +9,7 @@ import Specials from './components/ButtonComponents/SpecialButtons/Specials';
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
 import Display from './components/DisplayComponents/Display';
-import { calculate, getDisplayValue } from './calculate';
+import calculate from './calculate';
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -18,14 +18,10 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
-  const [calcs, setCalcs] = useState([0]);
+  const [calc, setCalc] = useState(0);
 
-  const valueToDisplay = getDisplayValue(calcs);
-
-  // whenever a button is clicked
-  const addCalculation = calculation => {
-    setCalcs([...calcs, calculation]);
-  };
+  // initial value
+  const valueToDisplay = calculate(calc);
 
   return (
     <div className="container">
@@ -36,11 +32,11 @@ function App() {
         <Display value={valueToDisplay} />
         <div className="calc-buttons">
           <div className="calc-left">
-            <Specials addCalculation={addCalculation} />
-            <Numbers addCalculation={addCalculation} />
+            <Specials />
+            <Numbers />
           </div>
           <div className="calc-right">
-            <Operators addCalculation={addCalculation} />
+            <Operators />
           </div>
         </div>
       </div>

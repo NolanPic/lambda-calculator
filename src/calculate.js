@@ -1,10 +1,8 @@
 
-export const calculate = (arr) => {
-    
+const calculate = (calc) => {
+    if(!isNaN(parseInt(calc))) {
+        return calc;
+    }
 };
 
-export const getDisplayValue = (arr) => {
-    if(arr.length === 1 && !isNaN(arr[0])) {
-        return arr[0];
-    }
-}
+export default calculate;
